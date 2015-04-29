@@ -413,4 +413,16 @@ case "$1" in
 			$BB echo -ne "\x$setstate" | $BB dd obs=1 count=1 seek=$offset of=$block 2> /dev/null;
 		fi;
 	;;
+		LiveCpuPvsLevel)
+			$BB echo "Pvs Bin: `$BB cat /sys/module/clock_krait_8974/parameters/pvs_level`@nSpeed Bin: `$BB cat /sys/module/clock_krait_8974/parameters/speed_level`"
+	;;
+		LiveChargeCurrent)
+			$BB echo "mA: `$BB cat /sys/kernel/charge_levels/charge_info`"
+	;;
+		LiveKernelCurrent)
+			$BB echo "`$BB uname -r`"
+	;;
+		LiveInfoCurrent)
+			$BB echo "Version: 3.8.1.9 Special Edition"
+	;;
 esac;
